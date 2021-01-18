@@ -1,0 +1,8 @@
+#!/bin/sh
+while true; do
+	sb
+done &
+echo 30 | sudo tee /sys/class/backlight/amdgpu_bl0/brightness
+xwallpaper --stretch ~/.git/nord-backgrounds/programming/1920x1080/go-hello.png
+xinput set-prop 11 "libinput Tapping Enabled" 1
+exec dwm

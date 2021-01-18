@@ -1,0 +1,5 @@
+wm: dwm
+statusbar: slstatus
+colorscheme: nordtheme
+shell: oksh
+editor: vis

@@ -1,0 +1,15 @@
+#!/bin/ksh
+# .kshrc -- Commands executed by each Korn shell at startup
+HISTFILE=$HOME/.story
+HISTSIZE=1000
+SAVEHIST=1000
+# Set emacs keybindings
+set -o emacs
+# Ksh prompt
+export PS1='$(pwd) $ '
+# Aliases
+alias ls='ls -F -a --color=auto'
+alias init6='sudo runit-init 6'
+alias init0='sudo runit-init 0'
+alias zzz='sudo zzz'
+alias zathura='devour zathura'
