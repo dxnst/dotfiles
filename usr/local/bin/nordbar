@@ -1,0 +1,26 @@
+#!/bin/bash
+
+batt() {
+  case "$(cat /sys/class/power_supply/BAT*/status 2>/dev/null)" in
+    Discharging) printf "^c#8FBCBB^ " ;;
+    Charging) printf "^c#8FBCBB^ " ;;
+    Full) printf "^c#8FBCBB^ " ;;
+  esac
+  printf "^c#8FBCBB^ $(cat /sys/class/power_supply/BAT*/capacity)"
+}
+
+wlan() {
+  case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
+  up) printf "^c#A3BE8C^ ﳊ Connected" ;;
+  down) printf "^c#BF616A^ ﲁ Disconnected" ;;
+  esac
+}
+
+clock() {
+  #printf "^c#88C0D0^ ^b#2E3440^"
+  printf "^c#88C0D0^^b#2E3440^ $(date '+%d-%m %H:%M') "
+}
+
+while true; do
+  sleep 1 && xsetroot -name "$(batt)% $(wlan) $(clock)"
+done
