@@ -1,5 +1,8 @@
-wm: dwm
-statusbar: slstatus
+wm: sway/dwm
+statusbar: swaybar/slstatus
 colorscheme: nordtheme
-shell: oksh
-editor: vis
+shell: oksh/bash
+editor: neovim/vis
+terminal: foot/st
+music player: cmus
+launcher: wofi/dmenu
