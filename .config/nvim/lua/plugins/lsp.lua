@@ -12,7 +12,7 @@ return {
     },
 
     config = function()
-        -- Consistent ronding for boders
+        -- Consistent rounding for borders
         vim.diagnostic.config({
             float = { border = "rounded" }
         })
@@ -35,12 +35,12 @@ return {
             },
             handlers = {
                 function(server_name)
-                    require("lspconfig")[server_name].setup {
+                    vim.lsp.config[server_name].setup {
                         capabilities = capabilities
                     }
                 end,
                 ["svelte"] = function()
-                    require("lspconfig")["svelte"].setup({
+                    vim.lsp.config.svelte.setup({
                         capabilities = capabilities,
                         on_attach = function(client, bufnr)
                             vim.api.nvim_create_autocmd("BufWritePost", {
@@ -54,7 +54,7 @@ return {
                     })
                 end,
                 ["tinymist"] = function()
-                    require("lspconfig")["tinymist"].setup {
+                    vim.lsp.config.tinymist.setup {
                         capabilities = capabilities,
                         settings = {
                             formatterMode = "typstyle",
@@ -63,8 +63,7 @@ return {
                     }
                 end,
                 ["lua_ls"] = function()
-                    local lspconfig = require("lspconfig")
-                    lspconfig.lua_ls.setup {
+                    vim.lsp.config.lua_ls.setup {
                         capabilities = capabilities,
                         settings = {
                             Lua = {
@@ -133,7 +132,6 @@ return {
                 { name = 'cmp-tw2css' },
             }, {})
         })
-
 
         local autocmd = vim.api.nvim_create_autocmd
         autocmd({ "BufEnter", "BufWinEnter" }, {
