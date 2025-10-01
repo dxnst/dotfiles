@@ -1,35 +1,7 @@
 -- Custom Typst link helpers
 local M = {}
 
--- Insert a note ID reference
-M.insert_note_id = function()
-	require("telescope.builtin").find_files({
-		cwd = vim.fn.expand("~/git-stuff/knowledge-base"),
-		prompt_title = "Select note to reference",
-		find_command = { "rg", "--files", "--glob", "*.typ", "--glob", "!.zk/**" },
-		attach_mappings = function(prompt_bufnr, map)
-			local actions = require("telescope.actions")
-			local action_state = require("telescope.actions.state")
-			
-			actions.select_default:replace(function()
-				actions.close(prompt_bufnr)
-				local selection = action_state.get_selected_entry()
-				if selection then
-					-- Extract the note ID from filename
-					local filename = vim.fn.fnamemodify(selection.value, ":t")
-					local note_id = filename:match("^([^%-]+)")
-					if note_id then
-						-- Insert just the ID
-						vim.api.nvim_put({ note_id }, "c", false, true)
-					end
-				end
-			end)
-			return true
-		end,
-	})
-end
-
--- Insert a full related note entry
+-- Insert a related note entry
 M.insert_related_note = function()
 	require("telescope.builtin").find_files({
 		cwd = vim.fn.expand("~/git-stuff/knowledge-base"),
