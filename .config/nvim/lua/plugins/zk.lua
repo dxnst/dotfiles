@@ -6,7 +6,7 @@ return {
 	},
 	config = function()		
 		require("zk").setup({
-			picker = "telescope",
+			picker = "snacks_picker",
 			lsp = {
 				auto_attach = {
 					enabled = true,
