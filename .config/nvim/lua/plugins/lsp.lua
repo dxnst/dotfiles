@@ -156,4 +156,4 @@ return {
             end
         })
     end
-}
+};

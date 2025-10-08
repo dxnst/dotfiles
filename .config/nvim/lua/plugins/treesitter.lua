@@ -5,9 +5,8 @@ return {
     config = function()
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
-                "bibtex", "csv", "go", "gomod", "gowork", "gosum", "html",
-				"latex", "lua", "make", "markdown", "markdown_inline", "python",
-				"r", "rust", "typst", "zig"  
+                "go", "gomod", "gowork", "gosum", "html", "latex", "lua",
+				"make", "python", "rust", "typst"
             },
             sync_install = false,
             auto_install = true,
