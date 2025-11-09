@@ -44,5 +44,5 @@ yabai -m config                                 \
     mouse_action2                resize         \
     mouse_drop_action            swap
 
-# borders active_color=0xff88c0d0 inactive_color=0xff2e3440 width=5.0 style=round &
+borders active_color=0xff88c0d0 inactive_color=0xff2e3440 width=5.0 style=round &
 echo "yabai configuration loaded.."
